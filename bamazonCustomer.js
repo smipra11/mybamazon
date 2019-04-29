@@ -75,7 +75,7 @@ function Bamazon() {
 
             var newquantity = res[0].stock_quantity - Quantity
             var purchaseid = item;
-            var totalPrice = res[0].price * Quantity
+            var totalPrice = parseFloat((res[0].price * Quantity).toFixed(2));
             console.log("total price of your purchase is  " + totalPrice)
             connection.query("UPDATE products SET ? WHERE ?",
               [
@@ -95,7 +95,8 @@ function Bamazon() {
 
           }
           else {
-            console.log("this item you order is out of stock")
+            console.log(" Sorry,We have not enough item in the stockat this time ,your order will be cancel")
+            connection.end();
           }
         });
       });

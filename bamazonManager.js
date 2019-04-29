@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require("cli-table")
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -63,89 +64,98 @@ function runSearch() {
 
 function displayProduct() {
     connection.query("SELECT * FROM Products", function (err, res) {
+        var table = new Table({
+            head: ['Item_ID', 'Product Name', 'Department Name', 'Price', 'Quantity']
+            , colWidths: [10, 25, 25, 30, 20]
+        });
         for (var i = 0; i < res.length; i++) {
-            console.log(
-                "Item_ID" +
-                res[i].item_id +
-                " || Product Name " +
-                res[i].product_name +
-                " || Department Name " +
-                res[i].department_name +
-                " ||  Price  " +
-                res[i].price +
-                "  ||  Quantity " +
-                res[i].stock_quantity
-            );
-        }
-        runSearch();
-    })
 
+            table.push(
+                [res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
+
+            )
+        };
+        console.log(table.toString())
+
+
+
+
+
+    });
+    runSearch();
 }
+
+
 
 
 function lowInventory() {
     connection.query("SELECT * from Products where stock_quantity < 5", function (err, res) {
+
+        var table = new Table({
+            head: ['Item_ID', 'Product Name', 'Department Name', 'Price', 'Quantity']
+            , colWidths: [10, 25, 25, 30, 20]
+        });
+
         if (err) throw err;
         for (i = 0; i < res.length; i++) {
+
+
             console.log("Below is the item which is low on inventory")
             console.log("--------------------------------------------------------")
-            console.log(
-                "Item_ID" +
-                res[i].item_id +
-                " || Product Name " +
-                res[i].product_name +
-                " || Department Name " +
-                res[i].department_name +
-                " ||  Price  " +
-                res[i].price +
-                "  ||  Quantity " +
-                res[i].stock_quantity
-            );
+
+
+            table.push(
+                [res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
+
+            )
+
         }
+        console.log(table.toString())
+    
 
         //runSearch()
     })
 }
 
 function addInventory() {
-    connection.query("SELECT * FROM Products",function(err,res) {
-for(i=0;i<res.length;i++){
-    var currentquantity = res[i].stock_quantity
-}
-inquirer
-        .prompt([{
-            name: "id",
-            type: "input",
-            message: "please provide id of the product you like to add?"
-        },
-
-        {
-            name: "quantity",
-            type: "input",
-            message: "How many quantities  you would like to add?",
-
+    connection.query("SELECT * FROM Products", function (err, res) {
+        for (i = 0; i < res.length; i++) {
+            var currentquantity = res[i].stock_quantity
         }
-        ])
-        .then(function (addmore) {
-            connection.query("UPDATE Products SET? WHERE?",
-                [
-                    {
-                        stock_quantity: currentquantity + parseInt(addmore.quantity),
-                    },
-                    {
-                        item_id: addmore.id
-                    }
-                ],
-            
-            function(err,res){
-                console.log(" more quantity  has been added to the inventory!!") 
-            });
+        inquirer
+            .prompt([{
+                name: "id",
+                type: "input",
+                message: "please provide id of the product you like to add?"
+            },
+
+            {
+                name: "quantity",
+                type: "input",
+                message: "How many quantities  you would like to add?",
+
+            }
+            ])
+            .then(function (addmore) {
+                connection.query("UPDATE Products SET? WHERE?",
+                    [
+                        {
+                            stock_quantity: currentquantity + parseInt(addmore.quantity),
+                        },
+                        {
+                            item_id: addmore.id
+                        }
+                    ],
+
+                    function (err, res) {
+                        console.log(" more quantity  has been added to the inventory!!")
+                    });
 
 
-        })
+            })
 
     })
-    
+
 }
 
 
