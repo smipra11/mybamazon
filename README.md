@@ -47,5 +47,7 @@ Show item with low inventory
 To add stock in original inventory
 
 to add new product in the inventory
+![Screenshot (34)](https://user-images.githubusercontent.com/45401868/56915430-7bfe4700-6a84-11e9-8b5f-df74c5e0a4f2.png)
+![Screenshot (35)](https://user-images.githubusercontent.com/45401868/56915432-7bfe4700-6a84-11e9-8ecc-b9d858bc4ebb.png)
 
 
