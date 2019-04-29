@@ -29,3 +29,6 @@ if there are enough inventory in stock order will precess
 ![Screenshot (23)](https://user-images.githubusercontent.com/45401868/56912983-8ae1fb00-6a7e-11e9-91d1-bfcc0be619e4.png)
 
 if there are not enough item in the stock
+
+![Screenshot (25)](https://user-images.githubusercontent.com/45401868/56913166-e8764780-6a7e-11e9-83a7-23ae6cbda950.png)
+
