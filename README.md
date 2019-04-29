@@ -25,3 +25,7 @@ Be sure to select the correct database by running the USE Bamazon;
 Below is a demo of the BamazonCustomer.js file...
 
 if there are enough inventory in stock order will precess
+
+![Screenshot (23)](https://user-images.githubusercontent.com/45401868/56912983-8ae1fb00-6a7e-11e9-91d1-bfcc0be619e4.png)
+
+if there are not enough item in the stock
