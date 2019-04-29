@@ -32,3 +32,6 @@ if there are not enough item in the stock
 
 ![Screenshot (25)](https://user-images.githubusercontent.com/45401868/56913166-e8764780-6a7e-11e9-83a7-23ae6cbda950.png)
 
+Below is a demo of the bamazonmanager.js file...
+Running node BamazonManager.js will display a menu and perform the specific requests. 
+
