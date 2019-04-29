@@ -35,3 +35,10 @@ if there are not enough item in the stock
 Below is a demo of the bamazonmanager.js file...
 Running node BamazonManager.js will display a menu and perform the specific requests. 
 
+![Screenshot (29)](https://user-images.githubusercontent.com/45401868/56915159-d34fe780-6a83-11e9-8d71-662872fc8ff1.png)
+
+![Screenshot (31)](https://user-images.githubusercontent.com/45401868/56915207-ee225c00-6a83-11e9-9345-2cd1dad922c9.png)
+
+Show item with low inventory
+
+
