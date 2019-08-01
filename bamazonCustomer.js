@@ -80,7 +80,6 @@ function Bamazon() {
             connection.query("UPDATE products SET ? WHERE ?",
               [
                 {
-                  stock_quantity: newquantity
                 },
                 {
                   item_id: purchaseid
